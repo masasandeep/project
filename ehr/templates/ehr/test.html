@@ -1,0 +1,29 @@
+{% extends 'ehr/home.html' %}
+{%block content%}
+<div>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <label for="{{forms.n1.id_for_label}}">{{test.n1}}</label>
+        {{forms.n1}}<br/>
+        <label for="{{forms.n2.id_for_label}}">{{test.n2}}</label>
+        {{forms.n2}}<br/>
+        {%if test.n3 %}
+        <label for="{{forms.n3.id_for_label}}">{{test.n3}}</label>
+        {{forms.n3}}<br/>
+        {%endif%}
+        {%if test.n4 %}
+        <label for='{{forms.n4.id_for_label}}'>{{test.n4}}</label>
+        {{forms.n4}}<br/>
+        {%endif%}
+        {%if test.n5 %}
+        <label for="{{forms.n5.id_for_label}}">{{test.n5}}</label>
+        {{forms.n5}}<br/>
+        {%endif%}
+        {%if test.n6 %}
+        <label for="{{forms.n6.id_for_label}}">{{test.n6}}</label>
+        {{forms.n6}}<br/>
+        {%endif%}
+        <button type="submit">submit</button>
+    </form>
+</div>
+{%endblock%}

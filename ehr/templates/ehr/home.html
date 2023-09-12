@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+</head>
+<body>
+    {%block content%}
+    {%for tests in test%}
+
+    <a href="{%url 'test' tests%}">{{tests}}</a>
+    <br/>
+    {%endfor%}
+    {%endblock%}
+</body>
+</html>
