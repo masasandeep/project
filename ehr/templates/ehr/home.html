@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,9 +6,10 @@
     <title>title</title>
 </head>
 <body>
+  
     {%block content%}
+    <a href="{%url 'create' %}">create</a><br/>
     {%for tests in test%}
-
     <a href="{%url 'test' tests%}">{{tests}}</a>
     <br/>
     {%endfor%}

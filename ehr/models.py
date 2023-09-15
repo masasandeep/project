@@ -5,6 +5,7 @@ class User(AbstractUser):
     email = models.EmailField(unique=True,max_length=254)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
+    
 class MainDivisions(models.Model):
     name = models.CharField( max_length=50,null=True)
     def __str__(self) -> str:
@@ -30,3 +31,8 @@ class TestResults(models.Model):
     n6 = models.CharField(max_length=50,blank=True,null=True,default="Null")
     def __str__(self):
         return f'{self.category}'  
+class Reports(models.Model):
+    Testname = models.CharField(max_length=50,null=True)
+    image = models.FileField()
+    def __str__(self):
+        return self.Testname

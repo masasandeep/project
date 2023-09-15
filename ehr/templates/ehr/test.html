@@ -1,12 +1,17 @@
 {% extends 'ehr/home.html' %}
 {%block content%}
 <div>
+    <a href={%url 'create' %}>Create test</a>
     <form method="POST" action="">
         {% csrf_token %}
+        {%if test.n1 %}
         <label for="{{forms.n1.id_for_label}}">{{test.n1}}</label>
         {{forms.n1}}<br/>
+        {%endif%}
+        {%if test.n2 %}
         <label for="{{forms.n2.id_for_label}}">{{test.n2}}</label>
         {{forms.n2}}<br/>
+        {%endif%}
         {%if test.n3 %}
         <label for="{{forms.n3.id_for_label}}">{{test.n3}}</label>
         {{forms.n3}}<br/>

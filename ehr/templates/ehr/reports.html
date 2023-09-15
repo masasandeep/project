@@ -1,0 +1,30 @@
+{%extends 'ehr/home.html' %}
+{%block content%}
+<div>
+    <a href="{% url 'repo' %}">view the reports</a>
+    <a href="{%url 'upload' %}">Upload the reports</a>
+</div>
+{%if type == 'all'%}
+<div>
+    {%for repo in test%}
+    <a href= {%url 'view' repo.Testname%}>{{repo.Testname}}</a>
+    {%endfor%}
+</div>
+{%elif type == 'upload' %}
+<div>
+    <form method="POST" enctype = "multipart/form-data">
+        {%csrf_token%}
+        <label for = {{forms.Testname.as_label}}>Testname: </label>
+        {{forms.Testname}}<br/>
+        <label for='images'>image</label>
+        <input type = 'file' name='images' multiple /><br/>
+        <button type='submit'>Submit</button>
+    </form>
+</div>
+{%else%}
+<div>
+    {{form.Testname}}
+    <img src="{{form.image.url}}" alt="sample" />
+</div>
+{%endif%}
+{%endblock%}
