@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
 from .models import *
 from .forms import *
+from django.http import FileResponse
+from django.shortcuts import get_object_or_404
 def Alltests(request):
     test = Testcategories.objects.all()
     context = {'test':test}
@@ -31,20 +33,23 @@ def reports(request):
 def upload(request):
     form = ReportForm()
     if request.method=='POST':
-        images = request.FILES.getlist('images')
+        files = request.FILES.getlist('files')
         name = request.POST.get('Testname')
-        for image in images:
+        for file in files:
             Reports.objects.create(
                 Testname = name,
-                image = image
+                file = file
             )
-        return redirect('report')
+        return redirect('reportsection')
     context = {'forms':form,'type':'upload'}
-    return render(request,'ehr/reports.html',context)
-def Allreports(request):
+    return render(request,'ehr/upload.html',context)
+def viewReports(request):
     test = Reports.objects.all()
-    return render(request,'ehr/reports.html',{'test':test,'type':'all'})
-def ViewReport(request,pk):
-    test = Reports.objects.get(Testname=pk)
-    context = {'form': test,'type':'view'}
-    return render(request,'ehr/reports.html',context)
+    return render(request,'ehr/view-reports.html',{'pdf_files':test})
+def download_pdf(request,pk):
+    pdf_file = get_object_or_404(Reports, pk=pk)
+    file_path = pdf_file.file.path
+    response = FileResponse(open(file_path, 'rb'))
+    return response
+    # context = {'form': test,'type':'view'}
+    # return render(request,'ehr/reports.html',context)

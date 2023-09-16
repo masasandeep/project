@@ -1,0 +1,14 @@
+{%extends 'ehr/home.html' %}
+{%block content%}
+<div>
+    <ul>
+    {% for pdf in pdf_files %}
+        <li>
+            {{ pdf.Testname }} - <a href="{% url 'download' pdf.id %}">Download</a>
+        </li>
+    {% empty %}
+        <li>No PDF files available.</li>
+    {% endfor %}
+    </ul>
+</div>
+{%endblock%}
