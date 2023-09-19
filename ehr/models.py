@@ -33,6 +33,6 @@ class TestResults(models.Model):
         return f'{self.category}'  
 class Reports(models.Model):
     Testname = models.CharField(max_length=50,null=True)
-    image = models.FileField()
+    file = models.FileField()
     def __str__(self):
         return self.Testname

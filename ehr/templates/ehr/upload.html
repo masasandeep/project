@@ -1,0 +1,13 @@
+{%extends 'ehr/home.html' %}
+{%block content%}
+<div>
+    <form method="POST" enctype = "multipart/form-data">
+        {%csrf_token%}
+        <label for = {{forms.Testname.as_label}}>Testname: </label>
+        {{forms.Testname}}<br/>
+        <label for='files'>files</label>
+        <input type = 'file' name='files' multiple /><br/>
+        <button type='submit'>Submit</button>
+    </form>
+</div>
+{%endblock%}
