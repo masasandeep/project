@@ -4,7 +4,7 @@
     <ul>
     {% for pdf in pdf_files %}
         <li>
-            {{ pdf.Testname }} - <a href="{% url 'download' pdf.id %}">Download</a>
+            {{ pdf.Testname }} - {{pdf.file}}- <a href="{% url 'download' pdf.id %}">Download</a>
         </li>
     {% empty %}
         <li>No PDF files available.</li>

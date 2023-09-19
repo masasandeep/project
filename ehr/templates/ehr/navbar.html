@@ -1,1 +1,31 @@
-<div class=
+<nav class="d-flex justify-content-between navbar navbar-expand-lg bg-body-tertiary ">
+    <div class="container-fluid">
+        <a class="navbar-brand ">EHR</a>
+        <form class="d-flex" role="search" method="GET" action="{% url 'search' %}">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <div class="d-flex justify-content-between " style="width: 250px">
+            <div class="nav-item dropdown " >
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-user-secret fa-beat fa-xl"></i>
+                {%if request.user.is_authenticated%} {{request.user.username}}
+                {%else %} user
+                {%endif%}
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    
+                  <li><hr class="dropdown-divider"></li>
+                  {%if request.user.is_authenticated %}
+                  <li><a class="dropdown-item" href="#">Log out</a></li>
+                  {%else %}
+                  <li><a class="dropdown-item" href="#">Login</a></li>
+                  {%endif%}
+                </ul>
+            </div>
+            <a class="nav-link active">Home</a>
+            <a class="nav-link active">About us</a>           
+        </div>
+    </div>
+</nav>

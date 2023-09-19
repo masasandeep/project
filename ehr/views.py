@@ -3,9 +3,17 @@ from .models import *
 from .forms import *
 from django.http import FileResponse
 from django.shortcuts import get_object_or_404
+from django.db.models import Q
 def Alltests(request):
     test = Testcategories.objects.all()
     context = {'test':test}
+    return render(request,'ehr/home.html',context)
+def search(request):
+    q = request.GET.get('q') if request.GET.get('q')!=None else ''
+    name = Testcategories.objects.filter(
+        Q(name__icontains = q)
+    )
+    context = {'test':name}
     return render(request,'ehr/home.html',context)
 def test(request,pk):
     forms = ''
@@ -51,5 +59,3 @@ def download_pdf(request,pk):
     file_path = pdf_file.file.path
     response = FileResponse(open(file_path, 'rb'))
     return response
-    # context = {'form': test,'type':'view'}
-    # return render(request,'ehr/reports.html',context)

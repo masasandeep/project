@@ -1,7 +1,6 @@
 {% extends 'ehr/home.html' %}
 {%block content%}
 <div>
-    <a href={%url 'create' %}>Create test</a>
     <form method="POST" action="">
         {% csrf_token %}
         {%if test.n1 %}
@@ -30,5 +29,6 @@
         {%endif%}
         <button type="submit">submit</button>
     </form>
+    
 </div>
 {%endblock%}
