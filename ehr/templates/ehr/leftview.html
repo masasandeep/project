@@ -1,0 +1,25 @@
+<div class="col-3 col-md-2 mt-5">
+  <div class="col">
+    <div class="rounded p-1 bg-light text-center">
+      <a href="{%url 'home' %}" class="nav-link p-3"
+        >All tests</a
+      >
+    </div>
+  </div>
+  {%for category in division%}
+  <div class="col text-center">
+    <div class="rounded p-1 bg-light">
+      <a href="{% url 'home'%}?q={{category}}" class="nav-link p-3"
+        >{{category}}</a
+      >
+    </div>
+  </div>
+  {%endfor%}
+  <div class="col">
+    <div class="rounded p-1 bg-light text-center">
+      <a href="{%url 'reportsection' %}" class="nav-link p-3"
+        >upload or view Reports</a
+      >
+    </div>
+  </div>
+</div>

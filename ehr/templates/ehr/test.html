@@ -1,34 +1,55 @@
-{% extends 'ehr/home.html' %}
-{%block content%}
-<div>
-    <form method="POST" action="">
-        {% csrf_token %}
-        {%if test.n1 %}
-        <label for="{{forms.n1.id_for_label}}">{{test.n1}}</label>
-        {{forms.n1}}<br/>
-        {%endif%}
-        {%if test.n2 %}
-        <label for="{{forms.n2.id_for_label}}">{{test.n2}}</label>
-        {{forms.n2}}<br/>
-        {%endif%}
-        {%if test.n3 %}
-        <label for="{{forms.n3.id_for_label}}">{{test.n3}}</label>
-        {{forms.n3}}<br/>
-        {%endif%}
-        {%if test.n4 %}
-        <label for='{{forms.n4.id_for_label}}'>{{test.n4}}</label>
-        {{forms.n4}}<br/>
-        {%endif%}
-        {%if test.n5 %}
-        <label for="{{forms.n5.id_for_label}}">{{test.n5}}</label>
-        {{forms.n5}}<br/>
-        {%endif%}
-        {%if test.n6 %}
-        <label for="{{forms.n6.id_for_label}}">{{test.n6}}</label>
-        {{forms.n6}}<br/>
-        {%endif%}
-        <button type="submit">submit</button>
-    </form>
-    
+{% extends 'ehr/home.html' %} {%block content%}
+<div class="container-fluid">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end me-5 mt-3">
+        <button class="btn btn-outline-success align-end rounded-3">
+          <a href="{%url 'delete' test1.name %}" class="nav-link">
+            <i class="fa-solid fa-eraser"></i> Delete</a
+          >
+        </button>
+    </div>
+  <div class="row min-vh-100 justify-content-center align-items-center">
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card mx-auto" style="width: 20rem; height: 20rem">
+        <div class="card-body p-5">
+          <form method="POST" action="">
+            {% csrf_token %} 
+            <label class="form-label" for="{{forms.category.id_for_label}}"
+              >Category</label
+            >
+            {{forms.category}}
+            {%if test1.n1 %}
+            <label class="form-label" for="{{forms.n1.id_for_label}}"
+              >{{test1.n1}}</label
+            >
+            {{forms.n1}} {%endif%} {%if test1.n2 %}
+            <label class="form-label" for="{{forms.n2.id_for_label}}"
+              >{{test1.n2}}</label
+            >
+            {{forms.n2}} {%endif%} {%if test1.n3 %}
+            <label class="form-label" for="{{forms.n3.id_for_label}}"
+              >{{test1.n3}}</label
+            >
+            {{forms.n3}} {%endif%} {%if test1.n4 %}
+            <label class="form-label" for="{{forms.n4.id_for_label}}"
+              >{{test1.n4}}</label
+            >
+            {{forms.n4}} {%endif%} {%if test1.n5 %}
+            <label class="form-label" for="{{forms.n5.id_for_label}}"
+              >{{test1.n5}}</label
+            >
+            {{forms.n5}} {%endif%} {%if test1.n6 %}
+            <label class="form-label" for="{{forms.n6.id_for_label}}"
+              >{{test1.n6}}</label
+            >
+            {{forms.n6}} {%endif%}
+            <br />
+            <button type="submit" class="btn btn-outline-success">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-{%endblock%}
+<div>{%endblock%}</div>
