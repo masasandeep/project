@@ -5,7 +5,7 @@
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-        <div class="d-flex justify-content-between " style="width: 250px">
+        <div class="d-flex justify-content-between" style="width: 250px">
             <div class="nav-item dropdown " >
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa-solid fa-user-secret fa-beat fa-xl"></i>
@@ -14,7 +14,7 @@
                 {%endif%}
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="{%url 'profile' request.user.id %}">Profile</a></li>
                     
                   <li><hr class="dropdown-divider"></li>
                   {%if request.user.is_authenticated %}

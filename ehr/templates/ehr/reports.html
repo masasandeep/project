@@ -1,7 +1,16 @@
-{%extends 'ehr/home.html' %}
-{%block content%}
-<div>
-    <a href="{% url 'reports' %}">view the reports</a>
-    <a href="{%url 'upload' %}">Upload the reports</a>
+{%extends 'ehr/home.html' %} {%block content%}
+<div class="container overflow-hidden text-center mt-5 w-50">
+  <div class="row gy-5 text-center ">
+    <div class="col-12">
+      <div class="rounded-5 p-5 bg-light text-center">
+        <a href="{% url 'reports' %}" class="nav-link">view the reports</a>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="rounded-5 p-5 bg-light text-center">
+      <a href="{%url 'upload' %}" class="nav-link">Upload the reports</a>
+    </div>
+    </div>
+  </div>
 </div>
 {%endblock%}

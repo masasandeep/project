@@ -1,13 +1,28 @@
-{%extends 'ehr/home.html' %}
-{%block content%}
-<div>
-    <form method="POST" enctype = "multipart/form-data">
-        {%csrf_token%}
-        <label for = {{forms.Testname.as_label}}>Testname: </label>
-        {{forms.Testname}}<br/>
-        <label for='files'>files</label>
-        <input type = 'file' name='files' multiple /><br/>
-        <button type='submit'>Submit</button>
-    </form>
-</div>
+{%extends 'ehr/home.html' %} {%block content%}
+<div class="container-fluid">
+    <div class="row min-vh-100 justify-content-center align-items-center">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card mx-auto" style="width: 20rem; height: 20rem">
+          <div class="card-body p-5">
+            <form method="POST" enctype="multipart/form-data">
+              {%csrf_token%}
+              <label for="{{forms.Testname.as_label}}">Testname: </label>
+              <input type="text" name="Testname" class="form-control" />
+              <label for="files">files</label>
+              <input
+                type="file"
+                name="files"
+                multiple
+                class="form-control"
+              /><br />
+              <button type="submit" class="btn btn-outline-success">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 {%endblock%}
